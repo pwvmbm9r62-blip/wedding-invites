@@ -162,16 +162,16 @@ body:after{
 }
 .inner-card{
   position:absolute;
-  width:74%; height:73%; left:13%; bottom:10%;
+  width:68%; height:56%; left:16%; bottom:8%;
   border-radius:24px; z-index:3;
   display:grid; place-items:center; text-align:center;
-  padding:20px 18px; overflow:hidden;
+  padding:18px 18px 16px; overflow:hidden;
   background:radial-gradient(circle at 82% 14%, rgba(255,255,255,.60), transparent 24%),
              radial-gradient(circle at 18% 78%, rgba(255,255,255,.25), transparent 22%),
              linear-gradient(160deg,#f4f8fb,#e3edf4 52%,#d3e2ec 100%);
   border:1px solid rgba(112,135,152,.08);
   box-shadow:0 16px 34px rgba(77,91,103,.10);
-  transform:translateY(8%);
+  transform:translateY(52%);
   transition:transform 1.05s .22s cubic-bezier(.20,.88,.24,1), box-shadow .35s ease;
 }
 .inner-card:before{
@@ -187,13 +187,16 @@ body:after{
   position:absolute; font-family:"Marck Script",cursive;
   color:rgba(115,136,151,.44); line-height:1; pointer-events:none;
 }
-.card-flourish.left{left:22px; top:20px; font-size:30px; transform:rotate(-10deg)}
-.card-flourish.right{right:20px; bottom:16px; font-size:34px; transform:rotate(8deg)}
-.card-heart{margin:2px auto 6px; width:72px; display:flex; align-items:center; justify-content:center; gap:9px; color:rgba(115,136,151,.62)}
+.card-flourish.left{left:18px; top:16px; font-size:26px; transform:rotate(-10deg)}
+.card-flourish.right{right:18px; bottom:14px; font-size:28px; transform:rotate(8deg)}
+.card-heart{margin:8px auto 8px; width:82px; display:flex; align-items:center; justify-content:center; gap:10px; color:rgba(115,136,151,.56)}
 .card-heart:before,.card-heart:after{content:""; flex:1; height:1px; background:rgba(115,136,151,.22)}
-.card-heart span{font-family:"Marck Script",cursive; font-size:20px; line-height:1}
-.inner-names{margin:0; font-family:"Cormorant Garamond",serif; font-size:46px; line-height:.92; font-weight:500; color:#536979}
-.inner-sub{margin-top:5px; font-family:"Marck Script",cursive; font-size:24px; line-height:1; color:#73899a}
+.card-heart span{font-family:"Cormorant Garamond",serif; font-size:22px; line-height:1}
+.inner-names{margin:0; font-family:"Cormorant Garamond",serif; font-size:41px; line-height:.86; font-weight:500; color:#536979; text-align:center}
+.inner-sub{margin-top:4px; font-family:"Marck Script",cursive; font-size:23px; line-height:1; color:#73899a; text-align:center}
+.inner-layout{display:flex;flex-direction:column;align-items:center;justify-content:center}
+.inner-names span{display:block}
+.inner-names .amp{font-size:30px; line-height:.72; font-style:italic; color:#7b90a0; margin:2px 0 2px}
 .hint{
   position:absolute; left:50%; bottom:calc(25% + 103px); transform:translateX(-50%);
   z-index:13; font-size:8px; letter-spacing:.24em; text-transform:uppercase;
@@ -220,7 +223,7 @@ body:after{
 .envelope.open .base{overflow:visible}
 .envelope.open .flap{transform:rotateX(180deg);z-index:2}
 .envelope.open .inner-card{
-  transform:translateY(-58%);
+  transform:translateY(-44%);
   z-index:6;
   box-shadow:0 28px 52px rgba(77,91,103,.16);
 }
@@ -454,9 +457,10 @@ main{
   .hero-note{height:10px;margin:0 auto 8px}
   .envelope-window{height:348px;padding-top:10px}
   .envelope{width:94%;top:18px}
-  .inner-names{font-size:42px;line-height:.92}
-  .inner-sub{font-size:22px}
-  .inner-card{height:74%;padding:18px 16px}
+  .inner-names{font-size:34px;line-height:.86}
+  .inner-names .amp{font-size:26px}
+  .inner-sub{font-size:20px}
+  .inner-card{width:70%;height:54%;left:15%;bottom:8%;padding:16px 14px}
   .quote{min-height:236px; padding:40px 28px}
   .quote p{font-size:19px;line-height:1.62;max-width:320px}
   .date-side,.info-side,.timeline,.dress,.rsvp{padding-left:22px;padding-right:22px}
@@ -484,10 +488,10 @@ main{
         <div class="envelope" id="envelope" role="button" tabindex="0" aria-label="Открыть приглашение">
           <div class="base">
             <div class="inner-card">
-              <div>
+              <div class="inner-layout">
                 <div class="card-flourish left">~</div>
                 <div class="card-flourish right">~</div>
-                <p class="inner-names">Дарья и Евгений</p>
+                <p class="inner-names"><span>Дарья</span><span class="amp">&amp;</span><span>Евгений</span></p>
                 <div class="card-heart"><span>♡</span></div>
                 <div class="inner-sub">Мы женимся</div>
               </div>
