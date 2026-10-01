@@ -1070,6 +1070,154 @@ main{
 }
 </style>
 
+
+<style id="rsvp-form-styles">
+/* RSVP form — added without changing the rest of the design */
+.rsvp-open-btn{
+  margin-top:22px;
+  appearance:none;
+  border:1px solid rgba(91,113,129,.14);
+  background:rgba(255,255,255,.78);
+  color:#4f6575;
+  border-radius:999px;
+  padding:13px 18px 12px;
+  font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size:11px;
+  font-weight:500;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  box-shadow:0 8px 22px rgba(78,94,106,.07);
+  cursor:pointer;
+  transition:transform .2s ease, background .2s ease, box-shadow .2s ease;
+}
+.rsvp-open-btn:active{transform:scale(.985)}
+.rsvp-form-wrap{
+  display:grid;
+  grid-template-rows:0fr;
+  opacity:0;
+  margin-top:0;
+  transition:grid-template-rows .45s ease, opacity .35s ease, margin-top .35s ease;
+}
+.rsvp-form-wrap.open{
+  grid-template-rows:1fr;
+  opacity:1;
+  margin-top:24px;
+}
+.rsvp-form-inner{overflow:hidden}
+.rsvp-form{
+  text-align:left;
+  display:grid;
+  gap:16px;
+  padding-top:2px;
+}
+.rsvp-field{
+  display:grid;
+  gap:8px;
+}
+.rsvp-label{
+  font-size:10px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:#7d8992;
+}
+.rsvp-input,
+.rsvp-select,
+.rsvp-textarea{
+  width:100%;
+  border:1px solid rgba(96,115,129,.14);
+  background:rgba(255,255,255,.76);
+  color:#34393e;
+  border-radius:16px;
+  padding:13px 14px;
+  font:14px/1.35 "Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  outline:none;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.55);
+}
+.rsvp-input:focus,
+.rsvp-select:focus,
+.rsvp-textarea:focus{
+  border-color:rgba(108,137,157,.38);
+  box-shadow:0 0 0 3px rgba(145,171,189,.08);
+}
+.rsvp-textarea{min-height:88px;resize:vertical}
+.rsvp-choice{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+.rsvp-choice input{
+  position:absolute;
+  opacity:0;
+  pointer-events:none;
+}
+.rsvp-choice label{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:38px;
+  padding:9px 13px;
+  border-radius:999px;
+  border:1px solid rgba(96,115,129,.14);
+  background:rgba(255,255,255,.68);
+  color:#58656e;
+  font-size:12px;
+  cursor:pointer;
+  transition:.2s ease;
+}
+.rsvp-choice input:checked + label{
+  background:#dfe9f0;
+  color:#4f6677;
+  border-color:rgba(110,137,155,.22);
+}
+.rsvp-counts{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+.rsvp-conditional{
+  display:none;
+  gap:16px;
+}
+.rsvp-conditional.show{display:grid}
+.rsvp-submit{
+  appearance:none;
+  border:none;
+  border-radius:999px;
+  padding:14px 18px 13px;
+  background:#7990a1;
+  color:#fff;
+  font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size:11px;
+  font-weight:500;
+  letter-spacing:.09em;
+  text-transform:uppercase;
+  cursor:pointer;
+  box-shadow:0 10px 22px rgba(94,117,134,.18);
+}
+.rsvp-submit:disabled{opacity:.55;cursor:default}
+.rsvp-status{
+  display:none;
+  padding:13px 14px;
+  border-radius:16px;
+  font-size:13px;
+  line-height:1.55;
+}
+.rsvp-status.success{
+  display:block;
+  background:rgba(227,238,233,.78);
+  color:#567063;
+}
+.rsvp-status.error{
+  display:block;
+  background:rgba(246,232,232,.82);
+  color:#865f62;
+}
+@media (max-width:430px){
+  .rsvp-counts{grid-template-columns:1fr 1fr}
+  .rsvp-open-btn{width:100%}
+}
+</style>
+
 </head>
 <body>
 <div class="page">
@@ -1153,6 +1301,74 @@ main{
       <h2>Подтвердите, пожалуйста,<br>ваше присутствие</h2>
       <div class="deadline">до 15.10.2026</div>
       <p>Так нам будет проще все спланировать и подготовить</p>
+
+      <button class="rsvp-open-btn" type="button" id="rsvpOpenBtn">Подтвердить присутствие</button>
+
+      <div class="rsvp-form-wrap" id="rsvpFormWrap">
+        <div class="rsvp-form-inner">
+          <form class="rsvp-form" id="rsvpForm" action="https://formspree.io/f/xgavbraj" method="POST">
+            <input type="hidden" name="_subject" value="RSVP на свадьбу — Евгений и Дарья">
+
+            <div class="rsvp-field">
+              <label class="rsvp-label" for="guestName">Ваше имя / семья</label>
+              <input class="rsvp-input" id="guestName" name="Имя или семья" type="text" autocomplete="name" required placeholder="Например, семья Ивановых">
+            </div>
+
+            <div class="rsvp-field">
+              <div class="rsvp-label">Сможете быть с нами?</div>
+              <div class="rsvp-choice">
+                <input type="radio" id="attendYes" name="Присутствие" value="Да" required>
+                <label for="attendYes">Да, будем 🤍</label>
+
+                <input type="radio" id="attendNo" name="Присутствие" value="Нет">
+                <label for="attendNo">К сожалению, нет</label>
+              </div>
+            </div>
+
+            <div class="rsvp-conditional" id="attendanceDetails">
+              <div class="rsvp-counts">
+                <div class="rsvp-field">
+                  <label class="rsvp-label" for="adultCount">Взрослых</label>
+                  <input class="rsvp-input" id="adultCount" name="Количество взрослых" type="number" inputmode="numeric" min="1" max="10" value="1">
+                </div>
+                <div class="rsvp-field">
+                  <label class="rsvp-label" for="childCount">Детей</label>
+                  <input class="rsvp-input" id="childCount" name="Количество детей" type="number" inputmode="numeric" min="0" max="10" value="0">
+                </div>
+              </div>
+
+              <div class="rsvp-field" id="childrenAgesField" style="display:none">
+                <label class="rsvp-label" for="childrenAges">Возраст ребёнка / детей</label>
+                <input class="rsvp-input" id="childrenAges" name="Возраст детей" type="text" placeholder="Например, 4 и 8 лет">
+              </div>
+
+              <div class="rsvp-field">
+                <div class="rsvp-label">Будете на регистрации в 13:00?</div>
+                <div class="rsvp-choice">
+                  <input type="radio" id="registryYes" name="Регистрация в 13:00" value="Да">
+                  <label for="registryYes">Да</label>
+
+                  <input type="radio" id="registryNo" name="Регистрация в 13:00" value="Нет">
+                  <label for="registryNo">Нет</label>
+                </div>
+              </div>
+
+              <div class="rsvp-field">
+                <label class="rsvp-label" for="foodNotes">Особенности питания / аллергии</label>
+                <textarea class="rsvp-textarea" id="foodNotes" name="Особенности питания или аллергии" placeholder="Если есть — напишите здесь"></textarea>
+              </div>
+            </div>
+
+            <div class="rsvp-field">
+              <label class="rsvp-label" for="guestComment">Комментарий</label>
+              <textarea class="rsvp-textarea" id="guestComment" name="Комментарий" placeholder="Необязательно"></textarea>
+            </div>
+
+            <button class="rsvp-submit" id="rsvpSubmit" type="submit">Отправить ответ</button>
+            <div class="rsvp-status" id="rsvpStatus" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
     </section>
 
     <div class="footer">Евгений &amp; Дарья ♡</div>
@@ -1190,5 +1406,81 @@ const observer = new IntersectionObserver((entries) => {
 
 reveals.forEach(el => observer.observe(el));
 </script>
+
+<script id="rsvp-form-script">
+(function(){
+  const btn = document.getElementById('rsvpOpenBtn');
+  const wrap = document.getElementById('rsvpFormWrap');
+  const form = document.getElementById('rsvpForm');
+  const status = document.getElementById('rsvpStatus');
+  const submit = document.getElementById('rsvpSubmit');
+  const attendYes = document.getElementById('attendYes');
+  const attendNo = document.getElementById('attendNo');
+  const details = document.getElementById('attendanceDetails');
+  const adultCount = document.getElementById('adultCount');
+  const childCount = document.getElementById('childCount');
+  const agesField = document.getElementById('childrenAgesField');
+
+  btn.addEventListener('click', function(){
+    wrap.classList.toggle('open');
+    btn.textContent = wrap.classList.contains('open') ? 'Скрыть форму' : 'Подтвердить присутствие';
+  });
+
+  function updateAttendance(){
+    const coming = attendYes.checked;
+    details.classList.toggle('show', coming);
+    adultCount.required = coming;
+    if(!coming){
+      adultCount.required = false;
+    }
+  }
+
+  attendYes.addEventListener('change', updateAttendance);
+  attendNo.addEventListener('change', updateAttendance);
+
+  function updateChildren(){
+    const n = Number(childCount.value || 0);
+    agesField.style.display = n > 0 ? 'grid' : 'none';
+  }
+  childCount.addEventListener('input', updateChildren);
+
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+    status.className = 'rsvp-status';
+    status.textContent = '';
+    submit.disabled = true;
+    submit.textContent = 'Отправляем…';
+
+    try{
+      const response = await fetch(form.action, {
+        method:'POST',
+        body:new FormData(form),
+        headers:{'Accept':'application/json'}
+      });
+
+      if(response.ok){
+        status.className = 'rsvp-status success';
+        status.textContent = 'Спасибо! Мы получили ваш ответ ♡';
+        form.reset();
+        details.classList.remove('show');
+        agesField.style.display = 'none';
+        submit.style.display = 'none';
+        btn.style.display = 'none';
+      }else{
+        status.className = 'rsvp-status error';
+        status.textContent = 'Не получилось отправить ответ. Попробуйте ещё раз чуть позже.';
+        submit.disabled = false;
+        submit.textContent = 'Отправить ответ';
+      }
+    }catch(err){
+      status.className = 'rsvp-status error';
+      status.textContent = 'Не получилось отправить ответ. Проверьте интернет и попробуйте ещё раз.';
+      submit.disabled = false;
+      submit.textContent = 'Отправить ответ';
+    }
+  });
+})();
+</script>
+
 </body>
 </html>
