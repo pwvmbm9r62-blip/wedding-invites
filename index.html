@@ -224,18 +224,24 @@ body:after{
 .after-open{
   opacity:0; transform:translateY(12px);
   pointer-events:none; transition:.42s .64s ease;
-  margin-top:16px;
+  margin-top:18px; text-align:center;
 }
 .envelope.open ~ .after-open{opacity:1;transform:none;pointer-events:auto}
+.after-open-note{
+  font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+  color:#8a9298; margin-bottom:10px;
+}
 .after-open a{
   text-decoration:none;
   color:#516472;
-  font-size:11px; letter-spacing:.16em; text-transform:uppercase;
-  display:inline-flex; align-items:center; gap:10px;
+  font-size:12px; letter-spacing:.04em;
+  display:inline-flex; align-items:center; justify-content:center; gap:10px;
+  padding:14px 20px; border-radius:999px;
+  background:rgba(255,255,255,.82); border:1px solid rgba(94,110,121,.14);
+  box-shadow:0 10px 22px rgba(84,95,105,.08);
 }
-.after-open a:before,
-.after-open a:after{
-  content:""; width:28px; height:1px; background:rgba(94,110,121,.24);
+.after-open a span{
+  font-size:16px; line-height:1; animation:bounce 1.25s ease-in-out infinite;
 }
 
 main{
@@ -478,7 +484,8 @@ main{
       </div>
 
       <div class="after-open">
-        <a href="#invite">Листай ниже</a>
+        <div class="after-open-note">конверт открыт</div>
+        <a href="#invite">Листай ниже, чтобы посмотреть приглашение <span aria-hidden="true">↓</span></a>
       </div>
     </div>
   </header>
