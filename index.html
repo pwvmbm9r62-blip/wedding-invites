@@ -97,7 +97,7 @@ body:after{
 .base{
   position:absolute; inset:0;
   border-radius:30px;
-  overflow:visible;
+  overflow:hidden;
   background:
     radial-gradient(circle at 18% 22%, rgba(255,255,255,.28) 0 1px, transparent 1.4px) 0 0/18px 18px,
     linear-gradient(150deg,#eee5d9 0%,#fbf7f1 49%,#e2d7ca 100%);
@@ -162,16 +162,16 @@ body:after{
 }
 .inner-card{
   position:absolute;
-  width:72%; height:67%; left:14%; bottom:10%;
+  width:74%; height:73%; left:13%; bottom:10%;
   border-radius:24px; z-index:3;
   display:grid; place-items:center; text-align:center;
-  padding:30px 24px; overflow:hidden;
+  padding:20px 18px; overflow:hidden;
   background:radial-gradient(circle at 82% 14%, rgba(255,255,255,.60), transparent 24%),
              radial-gradient(circle at 18% 78%, rgba(255,255,255,.25), transparent 22%),
              linear-gradient(160deg,#f4f8fb,#e3edf4 52%,#d3e2ec 100%);
   border:1px solid rgba(112,135,152,.08);
   box-shadow:0 16px 34px rgba(77,91,103,.10);
-  transform:translateY(46%);
+  transform:translateY(8%);
   transition:transform 1.05s .22s cubic-bezier(.20,.88,.24,1), box-shadow .35s ease;
 }
 .inner-card:before{
@@ -189,11 +189,11 @@ body:after{
 }
 .card-flourish.left{left:22px; top:20px; font-size:30px; transform:rotate(-10deg)}
 .card-flourish.right{right:20px; bottom:16px; font-size:34px; transform:rotate(8deg)}
-.card-heart{margin:6px auto 10px; width:78px; display:flex; align-items:center; justify-content:center; gap:10px; color:rgba(115,136,151,.62)}
+.card-heart{margin:2px auto 6px; width:72px; display:flex; align-items:center; justify-content:center; gap:9px; color:rgba(115,136,151,.62)}
 .card-heart:before,.card-heart:after{content:""; flex:1; height:1px; background:rgba(115,136,151,.22)}
-.card-heart span{font-family:"Marck Script",cursive; font-size:22px; line-height:1}
-.inner-names{margin:0; font-family:"Cormorant Garamond",serif; font-size:54px; line-height:.96; font-weight:500; color:#536979}
-.inner-sub{margin-top:10px; font-family:"Marck Script",cursive; font-size:27px; color:#73899a}
+.card-heart span{font-family:"Marck Script",cursive; font-size:20px; line-height:1}
+.inner-names{margin:0; font-family:"Cormorant Garamond",serif; font-size:46px; line-height:.92; font-weight:500; color:#536979}
+.inner-sub{margin-top:5px; font-family:"Marck Script",cursive; font-size:24px; line-height:1; color:#73899a}
 .hint{
   position:absolute; left:50%; bottom:calc(25% + 103px); transform:translateX(-50%);
   z-index:13; font-size:8px; letter-spacing:.24em; text-transform:uppercase;
@@ -217,9 +217,10 @@ body:after{
   border:1px solid rgba(255,255,255,.34);
   box-shadow:inset 0 0 0 5px rgba(255,255,255,.07),0 12px 22px rgba(72,88,101,.17);
 }
+.envelope.open .base{overflow:visible}
 .envelope.open .flap{transform:rotateX(180deg);z-index:2}
 .envelope.open .inner-card{
-  transform:translateY(-54%);
+  transform:translateY(-58%);
   z-index:6;
   box-shadow:0 28px 52px rgba(77,91,103,.16);
 }
@@ -453,8 +454,9 @@ main{
   .hero-note{height:10px;margin:0 auto 8px}
   .envelope-window{height:348px;padding-top:10px}
   .envelope{width:94%;top:18px}
-  .inner-names{font-size:45px}
-  .inner-sub{font-size:24px}
+  .inner-names{font-size:42px;line-height:.92}
+  .inner-sub{font-size:22px}
+  .inner-card{height:74%;padding:18px 16px}
   .quote{min-height:236px; padding:40px 28px}
   .quote p{font-size:19px;line-height:1.62;max-width:320px}
   .date-side,.info-side,.timeline,.dress,.rsvp{padding-left:22px;padding-right:22px}
