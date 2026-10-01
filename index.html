@@ -247,7 +247,7 @@ main{
   font-size:10px; letter-spacing:.24em; text-transform:uppercase; color:var(--muted);
 }
 .quote{
-  min-height:295px;
+  min-height:275px;
   display:grid; place-items:center;
   padding:58px 30px;
   text-align:center;
@@ -270,7 +270,7 @@ main{
 .quote p{
   margin:0; max-width:610px;
   font-family:"Cormorant Garamond",serif;
-  font-size:39px; line-height:1.22; color:#34383d;
+  font-size:35px; line-height:1.24; color:#34383d;
 }
 .overview{
   display:grid;
@@ -419,7 +419,7 @@ main{
   .inner-names{font-size:45px}
   .inner-sub{font-size:24px}
   .quote{min-height:280px; padding:50px 24px}
-  .quote p{font-size:34px}
+  .quote p{font-size:31px}
   .date-side,.info-side,.timeline,.dress,.rsvp{padding-left:22px;padding-right:22px}
   .date-num{font-size:118px}
   .date-month{font-size:31px}
@@ -471,7 +471,6 @@ main{
   <main>
     <section class="section soft quote reveal" id="invite">
       <div>
-        <div class="quote-script">для тебя</div>
         <p>С радостью приглашаем тебя разделить с нами этот особенный день — день, когда начинается наша семья.</p>
       </div>
     </section>
@@ -530,23 +529,13 @@ main{
     <section class="section dress reveal">
       <div class="eyebrow">dress code</div>
       <div class="dress-title">Однотонные образы</div>
-      <p>Будем рады однотонным образам в любимых оттенках 🤍<br>Особенно нам близки мягкие, спокойные и чистые цвета. Просим тебя избегать активных принтов.</p>
-      <div class="palette" aria-hidden="true">
-        <span class="chip c1"></span>
-        <span class="chip c2"></span>
-        <span class="chip c3"></span>
-        <span class="chip c4"></span>
-        <span class="chip c5"></span>
-        <span class="chip c6"></span>
-      </div>
-      <div class="palette-note">оттенки — скорее для настроения, а не как строгое ограничение</div>
+      <p>Будем рады однотонным образам в любимых оттенках 🤍<br>Просим тебя избегать активных принтов.</p>
     </section>
 
     <section class="section rsvp reveal">
-      <div class="rsvp-script">будем очень ждать тебя</div>
       <h2>Подтверди, пожалуйста,<br>своё присутствие</h2>
       <div class="deadline">до 15.10.2026</div>
-      <p>Так нам будет проще всё красиво спланировать и подготовить для тебя этот вечер.</p>
+      <p>Так нам будет проще все спланировать и организовать.</p>
     </section>
 
     <div class="footer">Дарья &amp; Евгений ♡</div>
@@ -562,9 +551,6 @@ function openEnvelope() {
   if (opened) return;
   opened = true;
   envelope.classList.add('open');
-  setTimeout(() => {
-    document.getElementById('invite').scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }, 820);
 }
 
 envelope.addEventListener('click', openEnvelope);
