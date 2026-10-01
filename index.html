@@ -226,7 +226,7 @@ body:after{
   pointer-events:none; transition:.42s .64s ease;
   margin-top:18px; text-align:center;
 }
-.envelope.open ~ .after-open{opacity:1;transform:none;pointer-events:auto}
+.stage.open .after-open{opacity:1;transform:none;pointer-events:auto}
 .after-open-note{
   font-size:11px; letter-spacing:.12em; text-transform:uppercase;
   color:#8a9298; margin-bottom:10px;
@@ -493,7 +493,7 @@ main{
   <main>
     <section class="section soft quote reveal" id="invite">
       <div>
-        <p>С радостью приглашаем тебя разделить с нами этот особенный день — день, когда начинается наша семья.</p>
+        <p>С радостью приглашаем вас разделить с нами этот особенный день — день, когда начинается наша семья.</p>
       </div>
     </section>
 
@@ -512,7 +512,7 @@ main{
         <div class="info-row">
           <div class="info-label">регистрация</div>
           <div class="info-main">13:00 · Таганский ЗАГС</div>
-          <div class="info-note">Будем рады, если ты захочешь разделить с нами и этот момент.</div>
+          <div class="info-note">Будем рады, если вы захотите разделить с нами и этот момент.</div>
           <span class="tag">по желанию</span>
         </div>
 
@@ -551,11 +551,11 @@ main{
     <section class="section dress reveal">
       <div class="eyebrow">dress code</div>
       <div class="dress-title">Однотонные образы</div>
-      <p>Будем рады однотонным образам в любимых оттенках 🤍<br>Просим тебя избегать активных принтов.</p>
+      <p>Будем рады однотонным образам в любимых оттенках 🤍<br>Просим избегать активных принтов.</p>
     </section>
 
     <section class="section rsvp reveal">
-      <h2>Подтверди, пожалуйста,<br>своё присутствие</h2>
+      <h2>Подтвердите, пожалуйста,<br>ваше присутствие</h2>
       <div class="deadline">до 15.10.2026</div>
       <p>Так нам будет проще все спланировать и организовать.</p>
     </section>
@@ -573,6 +573,7 @@ function openEnvelope() {
   if (opened) return;
   opened = true;
   envelope.classList.add('open');
+  document.querySelector('.stage').classList.add('open');
 }
 
 envelope.addEventListener('click', openEnvelope);
