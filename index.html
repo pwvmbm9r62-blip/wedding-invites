@@ -189,14 +189,38 @@ body:after{
 }
 .card-flourish.left{left:18px; top:16px; font-size:26px; transform:rotate(-10deg)}
 .card-flourish.right{right:18px; bottom:14px; font-size:28px; transform:rotate(8deg)}
-.card-heart{margin:8px auto 8px; width:82px; display:flex; align-items:center; justify-content:center; gap:10px; color:rgba(115,136,151,.56)}
-.card-heart:before,.card-heart:after{content:""; flex:1; height:1px; background:rgba(115,136,151,.22)}
-.card-heart span{font-family:"Cormorant Garamond",serif; font-size:22px; line-height:1}
-.inner-names{margin:0; font-family:"Cormorant Garamond",serif; font-size:41px; line-height:.86; font-weight:500; color:#536979; text-align:center}
-.inner-sub{margin-top:4px; font-family:"Marck Script",cursive; font-size:23px; line-height:1; color:#73899a; text-align:center}
+.card-heart{display:none}
+.inner-names{
+  margin:0;
+  font-family:"Prata",serif;
+  font-size:31px;
+  line-height:1.04;
+  font-weight:400;
+  color:#536979;
+  text-align:center;
+  white-space:nowrap;
+  letter-spacing:.01em;
+}
+.inner-sub{
+  margin-top:8px;
+  font-family:"Cormorant Garamond",serif;
+  font-style:italic;
+  font-size:24px;
+  line-height:1;
+  color:#73899a;
+  text-align:center;
+}
+.inner-heart{
+  margin-top:2px;
+  font-family:"Marck Script",cursive;
+  font-size:30px;
+  line-height:1;
+  color:#7b90a0;
+  text-align:center;
+}
 .inner-layout{display:flex;flex-direction:column;align-items:center;justify-content:center}
-.inner-names span{display:block}
-.inner-names .amp{font-size:30px; line-height:.72; font-style:italic; color:#7b90a0; margin:2px 0 2px}
+.inner-names span{display:inline}
+.inner-names .amp{font-size:1em; line-height:1; font-style:normal; color:inherit; margin:0 .08em}
 .hint{
   position:absolute; left:50%; bottom:calc(25% + 103px); transform:translateX(-50%);
   z-index:13; font-size:8px; letter-spacing:.24em; text-transform:uppercase;
@@ -457,9 +481,10 @@ main{
   .hero-note{height:10px;margin:0 auto 8px}
   .envelope-window{height:348px;padding-top:10px}
   .envelope{width:94%;top:18px}
-  .inner-names{font-size:34px;line-height:.86}
-  .inner-names .amp{font-size:26px}
-  .inner-sub{font-size:20px}
+  .inner-names{font-size:27px;line-height:1.04}
+  .inner-names .amp{font-size:1em}
+  .inner-sub{font-size:21px}
+  .inner-heart{font-size:26px}
   .inner-card{width:70%;height:54%;left:15%;bottom:8%;padding:16px 14px}
   .quote{min-height:236px; padding:40px 28px}
   .quote p{font-size:19px;line-height:1.62;max-width:320px}
@@ -491,9 +516,9 @@ main{
               <div class="inner-layout">
                 <div class="card-flourish left">~</div>
                 <div class="card-flourish right">~</div>
-                <p class="inner-names"><span>Дарья</span><span class="amp">&amp;</span><span>Евгений</span></p>
-                <div class="card-heart"><span>♡</span></div>
-                <div class="inner-sub">Мы женимся</div>
+                <p class="inner-names">Дарья &amp; Евгений</p>
+                <div class="inner-sub">мы женимся</div>
+                <div class="inner-heart">♡</div>
               </div>
             </div>
             <div class="liner" aria-hidden="true"></div>
