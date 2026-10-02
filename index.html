@@ -4,6 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#faf8f4">
+<script>
+(function(){
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  if (window.location.hash) {
+    history.replaceState(null, '', window.location.pathname + window.location.search);
+  }
+})();
+</script>
+
 <title>Дарья & Евгений — 05.12.2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1218,6 +1227,12 @@ main{
 }
 </style>
 
+
+<style id="map-and-evening-styles">
+.venue-line{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.map-link{display:inline-flex;align-items:center;justify-content:center;min-height:30px;padding:7px 11px 6px;border-radius:999px;border:1px solid rgba(100,124,141,.14);background:rgba(255,255,255,.72);color:#5d7485;text-decoration:none;font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:9px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;box-shadow:0 6px 16px rgba(79,96,109,.05);transition:transform .2s ease,background .2s ease,border-color .2s ease}.map-link:active{transform:scale(.985)}.map-link:hover{background:rgba(237,243,247,.92);border-color:rgba(100,124,141,.22)}.section.overview .info-row.end-row{grid-column:1/-1;grid-row:3}.section.overview .info-row.end-row .info-main{margin-bottom:0}@media(max-width:430px){.venue-line{align-items:flex-start;gap:9px}.map-link{font-size:8.5px;padding:7px 10px 6px}}
+</style>
+
 </head>
 <body>
 <div class="page">
@@ -1285,8 +1300,16 @@ main{
 
         <div class="info-row">
           <div class="info-label">сбор гостей</div>
-          <div class="info-main">15:00 · Mascot Loft</div>
+          <div class="info-main venue-line">
+            <span>15:00 · Mascot Loft</span>
+            <a class="map-link" href="https://yandex.ru/maps/?text=%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%2C%20%D0%93%D0%BE%D0%BB%D0%BE%D0%B2%D0%B8%D0%BD%D1%81%D0%BA%D0%BE%D0%B5%20%D1%88%D0%BE%D1%81%D1%81%D0%B5%2C%2011" target="_blank" rel="noopener noreferrer" aria-label="Посмотреть Mascot Loft на Яндекс Картах">Посмотреть на карте</a>
+          </div>
           <div class="info-note">После регистрации встретимся на камерном вечере с самыми близкими.</div>
+        </div>
+
+        <div class="info-row end-row">
+          <div class="info-label">завершение вечера</div>
+          <div class="info-main">21:00 · До новых встреч ♡</div>
         </div>
       </div>
     </section>
@@ -1405,6 +1428,20 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.16 });
 
 reveals.forEach(el => observer.observe(el));
+
+const inviteLink = document.querySelector('.after-open a[href="#invite"]');
+if (inviteLink) {
+  inviteLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    const invite = document.getElementById('invite');
+    if (invite) invite.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    history.replaceState(null, '', window.location.pathname + window.location.search);
+  });
+}
+
+window.addEventListener('pageshow', () => {
+  if (!window.location.hash) window.scrollTo(0, 0);
+});
 </script>
 
 <script id="rsvp-form-script">
