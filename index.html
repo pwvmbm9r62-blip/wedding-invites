@@ -1233,6 +1233,36 @@ main{
 .map-link{display:inline-flex;align-items:center;justify-content:center;min-height:30px;padding:7px 11px 6px;border-radius:999px;border:1px solid rgba(100,124,141,.14);background:rgba(255,255,255,.72);color:#5d7485;text-decoration:none;font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:9px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;box-shadow:0 6px 16px rgba(79,96,109,.05);transition:transform .2s ease,background .2s ease,border-color .2s ease}.map-link:active{transform:scale(.985)}.map-link:hover{background:rgba(237,243,247,.92);border-color:rgba(100,124,141,.22)}.section.overview .info-row.end-row{grid-column:1/-1;grid-row:3}.section.overview .info-row.end-row .info-main{margin-bottom:0}@media(max-width:430px){.venue-line{align-items:flex-start;gap:9px}.map-link{font-size:8.5px;padding:7px 10px 6px}}
 </style>
 
+
+<style id="date-illustration-and-gift-note">
+.section.overview .date-side{position:relative}
+.date-illustration{
+  position:absolute;
+  top:24px;
+  right:22px;
+  width:94px;
+  height:94px;
+  color:rgba(128,145,158,.22);
+  opacity:.95;
+  pointer-events:none;
+  z-index:0;
+}
+.date-illustration svg{display:block;width:100%;height:100%}
+.date-illustration path,.date-illustration circle{
+  vector-effect:non-scaling-stroke;
+}
+.section.overview .date-side .eyebrow,
+.section.overview .date-side .date-num,
+.section.overview .date-side .date-month,
+.section.overview .date-side .date-year{position:relative;z-index:1}
+.section.overview .info-row.wish-row{grid-column:1/-1;grid-row:4}
+.section.overview .info-row.wish-row .info-main{margin-bottom:10px}
+.section.overview .info-row.wish-row .info-note{max-width:100%}
+@media (max-width:430px){
+  .date-illustration{top:22px;right:18px;width:74px;height:74px;color:rgba(128,145,158,.18)}
+}
+</style>
+
 </head>
 <body>
 <div class="page">
@@ -1285,6 +1315,15 @@ main{
         <div class="date-num">05</div>
         <div class="date-month">декабря</div>
         <div class="date-year">2026</div>
+        <div class="date-illustration" aria-hidden="true">
+          <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M21 63c11-8 21-10 32-4 4 2 7 6 10 10 3-4 6-8 10-10 11-6 21-4 32 4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M42 72c4 10 12 18 21 25 9-7 17-15 21-25" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M54 30c2-4 6-6 10-6 5 0 9 4 9 9 0 7-7 11-14 18-7-7-14-11-14-18 0-5 4-9 9-9z" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M16 57c10 0 18 4 26 12" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M104 57c-10 0-18 4-26 12" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+          </svg>
+        </div>
       </div>
 
       <div class="info-side">
@@ -1309,7 +1348,13 @@ main{
 
         <div class="info-row end-row">
           <div class="info-label">завершение вечера</div>
-          <div class="info-main">21:00 · До новых встреч ♡</div>
+          <div class="info-main">21:00</div>
+        </div>
+
+        <div class="info-row wish-row">
+          <div class="info-label">пожелания</div>
+          <div class="info-main">Вместо цветов</div>
+          <div class="info-note">После праздника мы уезжаем в путешествие, поэтому цветы, к сожалению, не успеют нас порадовать. Вместо букета вы можете подарить нам бутылочку вина для домашней коллекции или вклад в свадебное путешествие — мы будем очень благодарны.</div>
         </div>
       </div>
     </section>
